@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon --experimental-modules src/index.mjs"
+    "dev": "nodemon src/index.js"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "agenda": "^5.0.0",
+    "@hokify/agenda": "^6.3.0",
+    "bull": "^4.12.2",
+    "csv-writer": "^1.6.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "fast-csv": "^5.0.1",
