@@ -5,9 +5,14 @@ import {
   getAllExportTasksAsync,
 } from "./handlers/export-tasks.js";
 import "./lib/bull/bull.js";
+import cors from "cors";
+import bodyParser from "body-parser";
 
 const app = express();
 const port = process.env.PORT || 4000;
+
+app.use(cors());
+app.use(bodyParser.json());
 
 app.get("/exports", getAllExportTasksAsync);
 app.post("/exports", createExportTaskAsync);
