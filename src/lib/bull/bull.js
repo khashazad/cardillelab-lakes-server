@@ -1,6 +1,7 @@
 import Queue from "bull";
 import { MongoClient, ObjectId } from "mongodb";
 import createCsvWriter from "csv-writer";
+import fs from "fs";
 
 export const exportQueue = new Queue("Export", "redis://127.0.0.1:6379");
 
@@ -112,13 +113,13 @@ exportQueue.process(5, async function (job) {
           },
         },
       );
-
-      console.log(`Processed collection ${col}`);
     }
+
+    const fileSize = (await fs.promises.stat(filePath)).size;
 
     await exportCollection.updateOne(
       { _id: new ObjectId(exportJobId) },
-      { $set: { status: "Completed", completedOn: new Date() } },
+      { $set: { status: "Completed", completedOn: new Date(), fileSize } },
     );
   } catch (error) {
     await exportCollection.updateOne(
