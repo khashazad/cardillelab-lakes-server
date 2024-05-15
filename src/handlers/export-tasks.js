@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 import { unlink } from "node:fs";
 
 export const createExportTaskAsync = async (req, res, next) => {
-  const { name, ...configurations } = req.body;
+  const { name, ...filters } = req.body;
 
   const regex = new RegExp(`^c(${req.body.fishnets.join("|")})_l8_\\d{2,3}$`);
 
@@ -19,7 +19,7 @@ export const createExportTaskAsync = async (req, res, next) => {
 
   const newExportJob = {
     name,
-    configurations,
+    filters,
     createdOn: new Date(),
     status: "Submitted",
     file: filePath,
