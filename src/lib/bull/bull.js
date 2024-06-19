@@ -55,9 +55,7 @@ const buildAggregationPipeline = (config) => {
 exportQueue.process(5, async function (job) {
   const { collections, filePath, buffers, exportJobId, ...config } = job.data;
 
-  const mongo_connection_string = process.env.MONGO_URI || "";
-
-  const client = new MongoClient(mongo_connection_string);
+  const client = new MongoClient(process.env.MONGO_URI);
 
   const db = client.db("Lakes");
 
