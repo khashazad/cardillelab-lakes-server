@@ -42,6 +42,8 @@ export const getAllExportTasksAsync = async (req, res, next) => {
 
   const exports = await exportCollection.find().toArray();
 
+  console.log(exports);
+
   res.send(exports).status(200);
 };
 
