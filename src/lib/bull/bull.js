@@ -3,7 +3,7 @@ import { MongoClient, ObjectId } from "mongodb";
 import createCsvWriter from "csv-writer";
 import fs from "fs";
 
-export const exportQueue = new Queue("Export", "redis://127.0.0.1:6379");
+export const exportQueue = new Queue("Export", "redis://10.5.0.4:6379");
 
 const extractIdsFromCollectionName = (collection) => {
   const parts = collection.split("_");

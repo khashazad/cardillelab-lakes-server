@@ -1,5 +1,8 @@
 import { MongoClient } from "mongodb";
-const connectionString = process.env.MONGO_URI || "";
+
+const connectionString =
+  process.env.MONGO_URI ||
+  "mongodb://lakesadmin:lakeharvest2021@10.5.0.2:27017";
 
 const client = new MongoClient(connectionString);
 let conn;

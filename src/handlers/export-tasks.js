@@ -13,7 +13,7 @@ export const createExportTaskAsync = async (req, res, next) => {
     .map((col) => col.name)
     .filter((col) => regex.test(col));
 
-  const filePath = `/Users/khxsh/Desktop/${name}.csv`;
+  const filePath = `/tmp/${name}.csv`;
 
   const exportCollection = db.collection("exports");
 

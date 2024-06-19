@@ -7,7 +7,11 @@ module.exports = async function (job, done) {
   const { collections, filePath, bands, cloudCoverThreshold, years, buffers } =
     job.data;
 
-  const connectionString = process.env.MONGO_URI || "";
+  const connectionString =
+    process.env.MONGO_URI ||
+    "mongodb://lakesadmin:lakeharvest2021@10.5.0.2:27017";
+
+  console.log(connectionString);
 
   const client = new MongoClient(connectionString);
 
