@@ -10,5 +10,5 @@ try {
 } catch (e) {
   console.error(e);
 }
-let db = conn.db("Lakes");
+let db = conn.db(process.env.MONGO_DATABASE);
 export default db;

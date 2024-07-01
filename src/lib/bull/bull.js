@@ -57,7 +57,7 @@ exportQueue.process(5, async function (job) {
 
   const client = new MongoClient(process.env.MONGO_URI);
 
-  const db = client.db("Lakes");
+  const db = client.db(process.env.MONGO_DATABASE);
 
   const exportCollection = db.collection("exports");
 
